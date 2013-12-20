@@ -1,0 +1,29 @@
+{
+  "name": "design-boilerplate",
+  "version": "0.0.1",
+  "homepage": "https://github.com/crayonistas/design-boilerplate",
+  "authors": [
+    "Edward Comley <edward.comley@southwales.ac.uk>"
+  ],
+  "description": "A boilerplate for USW less or sass websites.",
+  "main": "index.html",
+  "keywords": [
+    "usw",
+    "grunt",
+    "less",
+    "bootstrap",
+    "sass"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.0.3"
+  }
+}

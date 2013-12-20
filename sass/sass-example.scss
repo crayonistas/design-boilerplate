@@ -1,0 +1,13 @@
+@import "compass"; // css3, typography, utilities
+@import "compass/reset"; // Based on Eric Meyer's reset 2.0 Global reset rules.
+@import "susy";
+
+// @import "variables";
+// @import "mixins";
+// @import "base";
+// @import "layout";
+// @modules "modules";
+
+body {
+	background-color:blue;
+}
