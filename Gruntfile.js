@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-push-release');
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -42,6 +43,14 @@ module.exports = function(grunt) {
       } // production
 
     }, //compass
+
+    rename: {
+      main: {
+        files: [
+            {src: ['css/dist/sass-example.css'], dest: 'css/dist/sass-example.min.css'},
+            ]
+      }
+    },
 
     jshint: {
       beforeconcat: ['js/*.js']
@@ -97,7 +106,7 @@ module.exports = function(grunt) {
         files: ['less/*.less'],
         tasks: ['less'],
       }, // css
-      
+
       sass: {
         files: ['sass/*.scss'],
         tasks: ['compass:development','compass:production' ]
@@ -150,7 +159,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Default Task is basically a rebuild
-  grunt.registerTask('default', ['concat', 'uglify', 'less', 'compass', 'imagemin', 'watch']);
+  grunt.registerTask('default', ['concat', 'uglify', 'less', 'compass','rename', 'imagemin', 'watch']);
 
   grunt.registerTask('dev', ['connect', 'watch']);
 
