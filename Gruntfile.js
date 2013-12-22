@@ -31,26 +31,28 @@ module.exports = function(grunt) {
       development: {
         options: {
           config: 'config.rb',
-          cssDir: 'css',
+          cssDir: 'dist/css',
         } // options
       }, // development
+
+      rename: {
+        main: {
+          files: [
+              {src: ['dist/css/sass-example.css'], dest: 'dist/css/sass-example.min.css'},
+              ]
+        }
+      },
 
       production: {
         options: {
           config: 'config_prod.rb',
-          cssDir: 'css/dist',
+          cssDir: 'dist/css',
         }, // options
       } // production
 
     }, //compass
 
-    rename: {
-      main: {
-        files: [
-            {src: ['css/dist/sass-example.css'], dest: 'css/dist/sass-example.min.css'},
-            ]
-      }
-    },
+
 
     jshint: {
       beforeconcat: ['js/*.js']
@@ -63,14 +65,14 @@ module.exports = function(grunt) {
           'bower_components/bootstrap/js/*.js',
           'js/scripts.js'
         ],
-        dest: 'js/scripts.expanded.js',
+        dest: 'dist/js/scripts.js',
       }
     },
 
     uglify: {
       build: {
-        src: 'js/scripts.expanded.js',
-        dest: 'js/scripts.min.js' // for some reason this places scripts.js before jquery
+        src: 'dist/js/scripts.js',
+        dest: 'dist/js/scripts.min.js' // for some reason this places scripts.js before jquery
       }
     },
 
@@ -159,7 +161,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Default Task is basically a rebuild
-  grunt.registerTask('default', ['concat', 'uglify', 'less', 'compass','rename', 'imagemin', 'watch']);
+  grunt.registerTask('default', ['concat', 'uglify', 'less', 'compass', 'imagemin', 'watch']);
 
   grunt.registerTask('dev', ['connect', 'watch']);
 
