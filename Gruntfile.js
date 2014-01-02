@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-push-release');
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -31,28 +30,19 @@ module.exports = function(grunt) {
       development: {
         options: {
           config: 'config.rb',
-          cssDir: 'dist/css',
+          cssDir: 'css', // full fat
         } // options
       }, // development
-
-      rename: {
-        main: {
-          files: [
-              {src: ['dist/css/sass-example.css'], dest: 'dist/css/sass-example.min.css'},
-              ]
-        }
-      },
 
       production: {
         options: {
           config: 'config_prod.rb',
-          cssDir: 'dist/css',
-        }, // options
-      } // production
+          cssDir: 'css/dist', // minified
+        } // options
+      }, // production
+
 
     }, //compass
-
-
 
     jshint: {
       beforeconcat: ['js/*.js']
@@ -65,14 +55,14 @@ module.exports = function(grunt) {
           'bower_components/bootstrap/js/*.js',
           'js/scripts.js'
         ],
-        dest: 'dist/js/scripts.js',
+        dest: 'js/dist/scripts.js',
       }
     },
 
     uglify: {
       build: {
-        src: 'dist/js/scripts.js',
-        dest: 'dist/js/scripts.min.js' // for some reason this places scripts.js before jquery
+        src: 'js/dist/scripts.js',
+        dest: 'js/dist/scripts.min.js' // for some reason this places scripts.js before jquery
       }
     },
 
@@ -111,7 +101,7 @@ module.exports = function(grunt) {
 
       sass: {
         files: ['sass/*.scss'],
-        tasks: ['compass:development','compass:production' ]
+        tasks: ['compass']
       }, // sass
 
       images: {

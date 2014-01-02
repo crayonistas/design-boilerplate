@@ -6,16 +6,28 @@ A boilerplate which options for using either:
 - Less with bootstrap
 - Sass with compass and susy
 
+#### Suggested workflow
+
+- Download the zip.
+- Rename directory to project title
+- Decide to use either bootstrap or compass with suzy
+- Edit the 
+
 
 #### Setup:
 
     $ npm install
     $ bower install
-    $ grunt dev
+    $ grunt
+
+##### Optional:
+
+    $ grunt dev // starts a web server for html
+    $ grunt push // will auto add/commit/tag/push 
 
 #### Available with this boilerplate:
 
-Recommend you don't use all at once. Bootstrap or Compass with Susy.
+Recommend you don't use all at once. Pick to use Bootstrap or Compass with Susy.
 
 - [Bootstrap](http://getbootstrap.com/)
 - [Compass Home | Compass Documentation](http://compass-style.org/)
@@ -26,3 +38,6 @@ Recommend you don't use all at once. Bootstrap or Compass with Susy.
 
 - [JonnyBGod/grunt-push-release](https://github.com/JonnyBGod/grunt-push-release)
 
+##### TODO:
+
+- Work out a way to rename sass/compass built files to include .min.css

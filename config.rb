@@ -25,3 +25,11 @@ line_comments = false
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
 #preferred_syntax = :scss
+
+# This is where the magic happens, nothing too fancy though...
+on_stylesheet_saved do
+  "compass compile -c config_prod.rb --force"
+end
+
+# ref https://coderwall.com/p/gqqfgw
+# ref https://coderwall.com/p/jmdgga
