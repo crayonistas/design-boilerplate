@@ -17,11 +17,11 @@ A boilerplate which options for using either:
 #### Setup:
 
 - Accept the .rvmrc
-
+		
 		$ bundle install
-    $ npm install
-    $ bower install
-    $ grunt
+		$ npm install
+		$ bower install
+		$ grunt
 
 ##### Optional:
 
